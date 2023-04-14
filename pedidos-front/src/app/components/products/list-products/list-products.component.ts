@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { Product } from 'src/app/models/product';
 import { ProductService } from 'src/app/service/product.service';
 
@@ -10,9 +12,12 @@ import { ProductService } from 'src/app/service/product.service';
 export class ListProductsComponent implements OnInit {
 
   products : Product[] = [];
+  page! : number;
 
   constructor(
     private productService: ProductService,
+    private toastrService: ToastrService,
+    private router: Router
   ){}
 
   ngOnInit(): void{

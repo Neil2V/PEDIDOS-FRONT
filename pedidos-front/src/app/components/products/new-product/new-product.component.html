@@ -1,1 +1,36 @@
-<p>new-product works!</p>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6 mx-auto">
+            <form (ngSubmit)="createProduct()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <label for="name">Name: </label>
+                    <input type="text" class="form-control" id="name" name="name" 
+                    [(ngModel)]="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Category: </label>
+                    <input type="text" class="form-control" id="category" name="category" 
+                    [(ngModel)]="category" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price: </label>
+                    <input type="number" class="form-control" id="price" name="price" 
+                    [(ngModel)]="price" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Status: </label>
+                    <select id="status" class="form-control" name="status" [(ngModel)]="status" required>
+                        <option selected>Seleccione...</option>
+                        <option *ngFor="let st of statusArray" [value]="st.value">{{ st.statusOption }}</option>
+                    </select>
+                </div>
+                <div class="d-flex justify-content-center mt-4">
+                    <button class="btn btn-success btn-block" [disabled]="!f.valid">Create product</button>
+                </div>  
+                
+            </form>
+        </div>
+    </div>
+    
+</div>
+

@@ -1,1 +1,35 @@
-<p>edit-product works!</p>
+
+<div class="container-fluid" >
+    <div class="row mt-5" >
+        <div class="col-md-6 mx-auto" >
+            <form (ngSubmit)="editProduct()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <label for="name">Name: </label>
+                    <input type="text" class="form-control" id="name" name="name" 
+                    [(ngModel)]="product.name" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Category: </label>
+                    <input type="text" class="form-control" id="category" name="category" 
+                    [(ngModel)]="product.category" required>
+                </div>
+                <div class="form-group">
+                    <label for="price">Price: </label>
+                    <input type="number" class="form-control" id="price" name="price" 
+                    [(ngModel)]="product.price" required>
+                </div>
+                <div class="form-group">
+                    <label for="name">Status: </label>
+                    <select id="status" class="form-control" name="status" [(ngModel)]="product.status" required>
+                        <option selected>{{product.status}}</option>
+                        <option *ngFor="let st of statusArray" [value]="st.value">{{ st.statusOption }}</option>
+                    </select>
+                </div>
+                <div class="d-flex justify-content-center mt-4">
+                    <button class="btn btn-success btn-block" [disabled]="!f.valid">Update product</button>
+                </div>  
+            </form>
+        </div>
+        
+    </div>
+</div>
